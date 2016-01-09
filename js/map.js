@@ -1,13 +1,17 @@
 // Creates canvas 320 × 200 at 10, 50
 var paper = Raphael(10, 50, 1366, 800);
 
+circle1 = paper.circle(100,100,20).attr({"fill":"#48f5ab","stroke":"#48f5ab"});
 
-/* WIP http://jsfiddle.net/Zevan/QK7hw/
-var tip = $("#tip").hide();
-var tipText = "";
-var over = false;
+circle2 = paper.circle(200,100,20).attr({"fill":"#a8556b","stroke":"#a8556b"});
 
-*/
+popup = paper.popup(100,100,"Hi I m a Circle...:)").hide();//paper.popup()
+
+circle1.mouseover(function(){ popup.show(); });
+circle1.mouseout(function(){popup.hide(); });
+circle2.popup(); //Element.popup()
+
+
 
 //Centre block stats. Need to rename these variables
 var allRectangleHeight = 50;
@@ -90,33 +94,6 @@ var transparencyText = paper.text((topBarHorizontalStartingPosition+350)+topBarH
 //Left Bar
 //Continius Impo=rovement
 var continousImprovementTowardsPerfection= paper.rect(leftBarHorizontalPosition, leftBarVerticalStartingPosition, borderSideRectangleWidth, borderSideRectangleHeight);
-
-/* WIP pop up http://jsfiddle.net/Zevan/QK7hw/
-
-addTip(continousImprovementTowardsPerfection.node, "You are rolling over a circle");
-
-
-$(document).mousemove(function(e){
-    if (over){
-      tip.css("left", e.clientX+20).css("top", e.clientY+20);
-      tip.text(tipText);
-    }
-});
-
-function addTip(node, txt){
-    $(node).mouseenter(function(){
-       tipText = txt;
-       tip.fadeIn();
-       over = true;
-    }).mouseleave(function(){
-       tip.fadeOut(200);
-       over = false;
-    });
-}
-
-End WIP pop up http://jsfiddle.net/Zevan/QK7hw/ */
-
-
 
 var continousImprovementTowardsPerfectionText = paper.text(leftBarHorizontalPosition, leftBarVerticalStartingPosition+sideBarVerticalTextOffset, "Continous Improvement \n Towards Perfection")
 .attr(borderFont).rotate( textRotation, 210, 125 );
