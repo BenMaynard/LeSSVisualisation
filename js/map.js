@@ -2,16 +2,17 @@
 var paper = Raphael(10, 50, 1366, 800);
 
 circle1 = paper.circle(100,100,20).attr({"fill":"#48f5ab","stroke":"#48f5ab"});
-
-circle2 = paper.circle(200,100,20).attr({"fill":"#a8556b","stroke":"#a8556b"});
-
-popup = paper.popup(100,100,"Hi I m a Circle...:)").hide();//paper.popup()
-
+popup = paper.popup(100,100,"Hi I m a Circle...:)", "down", 50).hide();//paper.popup()
 circle1.mouseover(function(){ popup.show(); });
 circle1.mouseout(function(){popup.hide(); });
-circle2.popup(); //Element.popup()
 
 
+circle2 = paper.rect(200,100,20,30).attr({"fill":"#48f5ab","stroke":"#48f5ab"});
+popup2 = paper.popup(200,100,"Hi jshdjkshdjskdhskjhddsdsdsdsdsdsdskjdhskjdhskjd \n hskdhskdjhsdkjhsdkj \n I m a Circle...:)").hide();//paper.popup()
+circle2.mouseover(function(){ popup2.show(); });
+circle2.mouseout(function(){popup2.hide(); });
+
+// x and y co-ordinates need to match
 
 //Centre block stats. Need to rename these variables
 var allRectangleHeight = 50;
@@ -19,10 +20,8 @@ var bevel = 10;
 var largeRectangleLength = 600;
 var smallRectangleLength = 300;
 
-//playing with mouseover & mouse out
-var animationSpeed = 500;
-var hoverStyle = {
-  fill: "#A8BED5"};
+
+// Product Backlog style info
 var style = {
   fill: "#ddd",
   stroke: "#aaa",
@@ -97,6 +96,15 @@ var continousImprovementTowardsPerfection= paper.rect(leftBarHorizontalPosition,
 
 var continousImprovementTowardsPerfectionText = paper.text(leftBarHorizontalPosition, leftBarVerticalStartingPosition+sideBarVerticalTextOffset, "Continous Improvement \n Towards Perfection")
 .attr(borderFont).rotate( textRotation, 210, 125 );
+
+popuptest = paper.popup(leftBarHorizontalPosition, leftBarVerticalStartingPosition,
+	"Test text \n 	Shall I put these all in the same location? \n 	What are the limitations of this pop up? \n What can be tweaked via g.raphel? \n Can I Hi I m a Circle...:)"
+	 ).hide();//paper.popup()
+continousImprovementTowardsPerfectionText.mouseover(function(){ popuptest.show(); });
+continousImprovementTowardsPerfectionText.mouseout(function(){popuptest.hide(); });
+
+
+
 
 //Lean Thinking
 var leanThinking = paper.rect(leftBarHorizontalPosition, leftBarVerticalStartingPosition+borderSideRectangleHeight, borderSideRectangleWidth, borderSideRectangleHeight);
@@ -200,72 +208,3 @@ var teamTwoRetrospectiveText = paper.text(fullWidthCentreBoxHorizontalPosition+ 
 
 var overallRetrospective = paper.rect(fullWidthCentreBoxHorizontalPosition, 680, largeRectangleLength, allRectangleHeight, bevel);
 var overalRetrospectiveText = paper.text(fullWidthCentreBoxHorizontalPosition+300, borderTopBottomRectangleHeight + centreBoxesOffset + 650, "Overal Retrospective").attr(centreFont);
- 
-
-
-//var ellipse = paper.ellipse(350, 250, 400, 300) .attr({fill: "#000"});
-
-
-
-
-
-c.attr({href: "http://www.ideesport.fr/idee-cadeau-alsace.html"});
-
-// Sets the fill attribute of the circle to red (#f00)
-//c.attr("fill", "#f00");
-
-// Sets the stroke attribute of the circle to white
-circle.attr("stroke", "#fff");
-
-/*
-
-//productBacklog.addEventListener("click", function(){ alert("Hello World!");});
-//productBacklog.addEventListener("mouseout", productBacklog.animate(style, animationSpeed), true);
-
-//LeSS Map//
-var MAP_WIDTH  = 800;
-var MAP_HEIGHT = 600;
-
-var mapContainer = document.getElementById("map");
-var map = new Raphael(mapContainer, MAP_WIDTH, MAP_HEIGHT);
-
-var style = {
-  fill: "#ddd",
-  stroke: "#aaa",
-  "stroke-width": 1,
-  "stroke-linejoin": "round",
-  cursor: "pointer"
-};
-
-var regions = {};
-regions["alsace"] = map.path("M 480.71875,112.28125 477,113.3125 l -1.71875,3 0,2.9375 -1.5625,1.375 -1.375,0 -2.53125,-1.78125 -1.96875,1.375 -2.34375,0 -1.9375,-1.9375 -3.71875,-0.59375 -2.15625,-0.96875 -0.78125,-2.9375 -1.75,1.9375 -0.96875,4.5 -2.5625,0.78125 0,2.53125 2.5625,1.1875 1.9375,1.375 -0.78125,1.75 1.78125,1.15625 3.125,-2.34375 5.4375,3.125 -2.3125,4.3125 0.1875,1.375 1.5625,1.5625 -1.1875,4.09375 -3.90625,3.90625 -2.15625,-0.1875 1.375,1.34375 -0.78125,3.53125 L 459.25,155 l 3.71875,0.96875 -2.15625,4.875 -2.34375,4.6875 0.59375,2.9375 -1.9375,4.5 -3.34375,2.90625 -0.1875,7.625 -2.4375,2.09375 0.0937,0.0625 0.78125,1.5625 3.125,0.1875 3.53125,2.75 0.5625,1.34375 -0.1875,2.34375 -0.96875,1.78125 0.375,2.34375 2.75,-0.40625 0.59375,2.15625 0.96875,4.15625 2.3125,-0.375 -0.40625,2.125 1.375,1.1875 7.21875,-0.1875 3.71875,-2.9375 0.1875,-4.3125 1.96875,-2.53125 -2.5625,-2.9375 -1.34375,-3.125 1.5625,-2.125 0,-4.90625 0.96875,-2.34375 0,-3.90625 1.75,-2.53125 -1.9375,-2.71875 -0.21875,-6.25 5.09375,-9.96875 -0.59375,-5.65625 2.34375,-7.625 0.59375,-6.65625 5.0625,-3.6875 0,-2.34375 1.96875,-2.5625 1.5625,0 1.75,-1.75 -0.375,-3.3125 1.75,-4.6875 2.71875,-0.59375 L 496.5312,115 l -4.875,-0.5625 -4.3125,-2.15625 -2.9375,1.75 -1.5625,-1.75 -2.125,0 z").attr({href: "http://www.ideesport.fr/idee-cadeau-alsace.html"});
-regions["ben"] = map.path("M25.221,1.417H6.11c-0.865,0-1.566,0.702-1.566,1.566v25.313c0,0.865,0.701,1.565,1.566,1.565h19.111c0.865,0,1.565-0.7,1.565-1.565V2.984C26.787,2.119,26.087,1.417,25.221,1.417zM15.666,29.299c-0.346,0-0.626-0.279-0.626-0.625s0.281-0.627,0.626-0.627c0.346,0,0.627,0.281,0.627,0.627S16.012,29.299,15.666,29.299zM24.376,26.855c0,0.174-0.142,0.312-0.313,0.312H7.27c-0.173,0-0.313-0.142-0.313-0.312V4.3c0-0.173,0.14-0.313,0.313-0.313h16.792c0.172,0,0.312,0.14,0.312,0.313L24.376,26.855L24.376,26.855z").attr({href: "http://www.ideesport.fr/idee-cadeau-alsace.html"});
-regions["nord-pas-de-calais"] = map.path("m 285.78125,4.0625 -6.25,2.9375 -9.75,1.5625 -11.34375,2.15625 -8.59375,6.625 0,26.375 -0.0625,0.78125 3.03125,0.71875 0.96875,2.15625 2.34375,-0.59375 1.375,-1.75 1.75,0.59375 3.71875,2.90625 1.375,-0.5625 0.96875,2.34375 3.5,1.5625 0,1.9375 2.5625,0.96875 2.53125,-0.96875 4.875,-0.59375 1.1875,1 2.34375,-1 1.15625,1.96875 -2.90625,1.9375 0,2.75 0.96875,0.96875 0.78125,-0.1875 0.5625,-1.5625 1.78125,-1.1875 1.75,1.375 4.09375,1.375 1.75,0 0,-1.96875 2.5625,1.78125 0.1875,1.5625 -1.1875,1.75 2.15625,-1.1875 1.78125,-0.78125 0.75,1.375 0,1.375 2.9375,-1.5625 4.6875,0 1.75,1.75 1.5625,0.40625 1.5625,-1 2.15625,0 0.59375,1.1875 0.78125,-0.1875 2.34375,-1.375 2.34375,1.375 3.125,-2.15625 1.375,0 1.5625,1.375 3.125,-2.15625 1.34375,0.1875 1.1875,0.96875 4.3125,0.40625 0.375,1.75 2.15625,-1.9375 1.15625,0 0.78125,2.53125 3.71875,0.96875 1.0625,-0.71875 -0.3125,0 -0.1875,-1.9375 3.90625,-2.34375 -0.59375,-3.71875 -3.71875,-0.96875 0.96875,-1 0,-2.71875 2.9375,-2.15625 -0.78125,-1.5625 -6.25,-4.875 -10.9375,0.59375 -1.15625,1.9375 -1.375,0 0.1875,-6.84375 -3.125,-3.6875 -2.34375,0.375 -1.375,-1.5625 -3.90625,1.75 -1.34375,-1.34375 -2.75,-0.40625 -0.78125,-2.53125 -0.1875,-7.8125 -1.75,-0.78125 -0.21875,-1.1875 -1.15625,0 -0.40625,-2.34375 -2.53125,0.21875 -4.875,1.5625 -2.34375,2.90625 -2.34375,0 -1.5625,-1.9375 -0.59375,-2.15625 -1.9375,-2.15625 -2.75,0 -1.15625,-2.125 0,-3.34375 1.34375,-2.125 -0.78125,-2.9375 -2.53125,-5.09375 z");
-
-for(var regionName in regions) {
-    regions[regionName].attr(style);
-}
-
-var animationSpeed = 500;
-var hoverStyle = {
-  fill: "#A8BED5"
-}
-
-for(var regionName in regions) {
-    (function (region) {
-        region.attr(style);
-
-        region[0].addEventListener("mouseover", function() {
-            region.animate(hoverStyle, animationSpeed);
-        }, true);
-
-        region[0].addEventListener("mouseout", function() {
-          region.animate(style, animationSpeed);
-        }, true);
-
-d",
- cursor: "pointer"
-};
-
-}
-*/
