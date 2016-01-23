@@ -113,9 +113,11 @@ var continousImprovementTowardsPerfection= paper.rect(leftBarHorizontalPosition,
 var continousImprovementTowardsPerfectionText = paper.text(leftBarHorizontalPosition, leftBarVerticalStartingPosition+sideBarVerticalTextOffset, "Continous Improvement \n Towards Perfection")
 .attr(borderFont).rotate( textRotation, 210, 125 );
 
-popuptest = paper.popup(leftBarHorizontalPosition, leftBarVerticalStartingPosition,
+//.popup(x , y, location , size)
+
+popuptest = paper.popup(leftBarHorizontalPosition, leftBarVerticalStartingPosition+50,
 	"Test text \n 	Shall I put these all in the same location? \n 	What are the limitations of this pop up? \n What can be tweaked via g.raphel? \n Can I Hi I m a Circle...:)"
-	 ).hide();//paper.popup()
+	, 'left', 5 ).hide();//paper.popup()
 continousImprovementTowardsPerfectionText.mouseover(function(){ popuptest.show(); });
 continousImprovementTowardsPerfectionText.mouseout(function(){popuptest.hide(); });
 
