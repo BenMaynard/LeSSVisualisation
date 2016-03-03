@@ -62,7 +62,6 @@ var improvementBacklogCustomerValueFlowFont = {"font-family":"serif", "font-styl
 //Border Rectangle Dimensions
 var borderSideRectangleHeight = 229;
 var borderSideRectangleWidth = 50; //top bar needs to be the sum of with side bar widths and the gap in between
-//var borderTopBottomRectangleWidth = 350;
 var borderTopBottomRectangleWidth = (660 + borderSideRectangleWidth)/2; //the 660 is the diff between the horizontal and vertical. need to add it as a clac but was playing up
 var borderTopBottomRectangleHeight = 50;
 
@@ -136,11 +135,11 @@ var continousImprovementTowardsPerfectionText = paper.text(leftBarHorizontalPosi
 
 //.popup(x , y, location , size)
 
-popuptest = paper.popup(leftBarHorizontalPosition, leftBarVerticalStartingPosition+50,
+continousImprovementTowardsPerfectionPopUp = paper.popup(leftBarHorizontalPosition, leftBarVerticalStartingPosition+50,
 	"Test text \n 	Shall I put these all in the same location? \n 	What are the limitations of this pop up? \n What can be tweaked via g.raphel? \n Can I Hi I m a Circle...:)"
 	, 'left', 5 ).hide();//paper.popup()
-continousImprovementTowardsPerfectionText.mouseover(function(){ popuptest.show(); });
-continousImprovementTowardsPerfectionText.mouseout(function(){popuptest.hide(); });
+continousImprovementTowardsPerfectionText.mouseover(function(){continousImprovementTowardsPerfectionPopUp.show(); });
+continousImprovementTowardsPerfectionText.mouseout(function(){continousImprovementTowardsPerfectionPopUp.hide(); });
 
 
 
@@ -150,10 +149,25 @@ var leanThinking = paper.rect(leftBarHorizontalPosition, leftBarVerticalStarting
 var leanThinkingText = paper.text(leftBarHorizontalPosition+borderSideRectangleHeight, leftBarVerticalStartingPosition+sideBarVerticalTextOffset, "Lean Thinking	")
 .attr(borderFont).rotate( textRotation, 210, 125 );
 
+leanThinkingPopUp = paper.popup(leftBarHorizontalPosition, leftBarVerticalStartingPosition+300,
+	"Test text \n 	Shall I put these all in the same location? \n 	What are the limitations of this pop up? \n What can be tweaked via g.raphel? \n Can I Hi I m a Circle...:)"
+	, 'left', 5 ).hide();//paper.popup()
+leanThinkingText.mouseover(function(){leanThinkingPopUp.show(); });
+leanThinkingText.mouseout(function(){leanThinkingPopUp.hide(); });
+
+
+
 //Systems Thinking
 var systemsThinking = paper.rect(leftBarHorizontalPosition, leftBarVerticalStartingPosition+(borderSideRectangleHeight*2), borderSideRectangleWidth, borderSideRectangleHeight).attr({fill: principleColour});;
 var systemsThinkingText = paper.text(leftBarHorizontalPosition+(borderSideRectangleHeight*2), leftBarVerticalStartingPosition+sideBarVerticalTextOffset, "Systems Thinking	")
 .attr(borderFont).rotate( textRotation, 210, 125 );
+
+systemsThinkingPopUp = paper.popup(leftBarHorizontalPosition, leftBarVerticalStartingPosition+550,
+	"Test text \n 	Shall I put these all in the same location? \n 	What are the limitations of this pop up? \n What can be tweaked via g.raphel? \n Can I Hi I m a Circle...:)"
+	, 'left', 5 ).hide();//paper.popup()
+systemsThinkingText.mouseover(function(){systemsThinkingPopUp.show(); });
+systemsThinkingText.mouseout(function(){systemsThinkingPopUp.hide(); });
+
 
 
 //Right Bar
