@@ -1,7 +1,8 @@
 //Need to add improvment backlog
 
 // Creates canvas 320 × 200 at 10, 50
-var paper = Raphael(10, 50, 1366, 800);
+var paper = Raphael(10, 50, 1500, 1000);
+
 
 // x and y co-ordinates need to match
 
@@ -55,8 +56,8 @@ var principleColour = "#A2D7E8";
 //fonts
 var centreFont = {"font-family":"serif", "font-style":"regular", "font-size":"20"};
 var borderFont = {"font-family":"serif", "font-style":"regular", "font-size":"20"};
-var teamFont = {"font-family":"serif", "font-style":"regular", "font-colour":"#ffffff", "font-size":"20"};
-
+var teamFont = {"font-family":"serif", "font-style":"regular", "font-size":"20"};
+var improvementBacklogCustomerValueFlowFont = {"font-family":"serif", "font-style":"regular", "font-size":"30", "letter-spacing":"25px"};
 
 //Border Rectangle Dimensions
 var borderSideRectangleHeight = 229;
@@ -96,11 +97,22 @@ var centreBoxesOffset = 5;
 var fullWidthCentreBoxHorizontalPosition = leftBarHorizontalPosition + borderSideRectangleWidth + centreBoxesOffset;
 var fullWidthCentreBoxVerticalPosition = 0;
 
-//Improvement Backlog
-var improvementBacklog = paper.rect(100, 0, 800, 1000).attr({fill: principleColour});;
-var improvementBacklogText = paper.text((topBarHorizontalStartingPosition+350)+topBarHorizontalTextOffset, topBarVerticalPosition+topBarVerticalTextOffset, "Transparency").attr(borderFont);
+//Improvement Backlog & Value Flow
+var improvementBacklog = paper.rect(200, 0, 810, 787).attr({fill: principleColour});;
+var improvementBacklogText = paper.text(leftBarHorizontalPosition+borderSideRectangleHeight-50, leftBarVerticalStartingPosition+sideBarVerticalTextOffset, "Improvement Backlog")
+.attr(improvementBacklogCustomerValueFlowFont).rotate( textRotation, 162, 125 );
 
-
+    paper.path([
+        'M',  985, 17,
+        'L',  985 , 785
+    ]).attr({
+        'stroke-width': 15,
+        'stroke': ('white'),
+        'arrow-end': 'block-midium-midium',
+        'arrow-start': 'oval-narrow-short'       
+    });
+var customerValueFlowText = paper.text(leftBarHorizontalPosition+borderSideRectangleHeight-55, leftBarVerticalStartingPosition+sideBarVerticalTextOffset-760, "Customer Value Flow")
+.attr(improvementBacklogCustomerValueFlowFont).rotate( textRotation, 162, 125 );
 
 
 //Top Bar
@@ -116,7 +128,7 @@ var transparencyText = paper.text((topBarHorizontalStartingPosition+350)+topBarH
 
 
 //Left Bar
-//Continius Impo=rovement
+//Continius Improvement
 var continousImprovementTowardsPerfection= paper.rect(leftBarHorizontalPosition, leftBarVerticalStartingPosition, borderSideRectangleWidth, borderSideRectangleHeight).attr({fill: principleColour});;
 
 var continousImprovementTowardsPerfectionText = paper.text(leftBarHorizontalPosition, leftBarVerticalStartingPosition+sideBarVerticalTextOffset, "Continous Improvement \n Towards Perfection")
