@@ -1,3 +1,5 @@
+//Need to add improvment backlog
+
 // Creates canvas 320 × 200 at 10, 50
 var paper = Raphael(10, 50, 1366, 800);
 
@@ -20,7 +22,7 @@ var productBacklogRefinementStyle = {
 };
 
 var sprintPlanningStyle = {
-  fill: "#21C44A",
+  fill: "#ccffcc",
   stroke: "#aaa",
   "stroke-width": 1,
   "stroke-linejoin": "round",
@@ -29,7 +31,7 @@ var sprintPlanningStyle = {
 
 
 var coPStyle = {
-  fill: "#EEF533",
+  fill: "#f2f2f2",
   stroke: "#aaa",
   "stroke-width": 1,
   "stroke-linejoin": "round",
@@ -37,7 +39,7 @@ var coPStyle = {
 };
 
 var reviewReflectionStyle = {
-  fill: "#F565FC",
+  fill: "#ccccff",
   stroke: "#aaa",
   "stroke-width": 1,
   "stroke-linejoin": "round",
@@ -53,6 +55,8 @@ var principleColour = "#A2D7E8";
 //fonts
 var centreFont = {"font-family":"serif", "font-style":"regular", "font-size":"20"};
 var borderFont = {"font-family":"serif", "font-style":"regular", "font-size":"20"};
+var teamFont = {"font-family":"serif", "font-style":"regular", "font-colour":"#ffffff", "font-size":"20"};
+
 
 //Border Rectangle Dimensions
 var borderSideRectangleHeight = 229;
@@ -91,6 +95,11 @@ var centreBoxesOffset = 5;
 //Centre box horizontal and vertical positions
 var fullWidthCentreBoxHorizontalPosition = leftBarHorizontalPosition + borderSideRectangleWidth + centreBoxesOffset;
 var fullWidthCentreBoxVerticalPosition = 0;
+
+//Improvement Backlog
+var improvementBacklog = paper.rect(100, 0, 800, 1000).attr({fill: principleColour});;
+var improvementBacklogText = paper.text((topBarHorizontalStartingPosition+350)+topBarHorizontalTextOffset, topBarVerticalPosition+topBarVerticalTextOffset, "Transparency").attr(borderFont);
+
 
 
 
@@ -213,16 +222,35 @@ var sprintPlanning2b= paper.rect(fullWidthCentreBoxHorizontalPosition + 300, (bo
 var sprintPlanning2bText = paper.text(fullWidthCentreBoxHorizontalPosition+455, borderTopBottomRectangleHeight + centreBoxesOffset + 300, "Multi Team Sprint Planning 2").attr(centreFont);
 
 //CoPs
-var architectureCoP = paper.rect(fullWidthCentreBoxHorizontalPosition, (borderTopBottomRectangleHeight + centreBoxesOffset)*7, largeRectangleLength, allRectangleHeight*1.5, bevel)
+var architectureCoP = paper.rect(fullWidthCentreBoxHorizontalPosition, 385, largeRectangleLength, allRectangleHeight*1.5, bevel)
 .attr(coPStyle);
-var testingCoP = paper.rect(fullWidthCentreBoxHorizontalPosition, 490, largeRectangleLength, allRectangleHeight*1.5, bevel)
+var architectureCoPText = paper.text(fullWidthCentreBoxHorizontalPosition+300, 410, "Architecure CoP").attr(centreFont);
+
+var testingCoP = paper.rect(fullWidthCentreBoxHorizontalPosition, 435, largeRectangleLength, allRectangleHeight*1.5, bevel)
 .attr(coPStyle);
+var testingCoPText = paper.text(fullWidthCentreBoxHorizontalPosition+300, 460, "Testing CoP").attr(centreFont);
+
+var developmentCoP = paper.rect(fullWidthCentreBoxHorizontalPosition, 490, largeRectangleLength, allRectangleHeight*1.5, bevel)
+.attr(coPStyle);
+var developmentCoPText = paper.text(fullWidthCentreBoxHorizontalPosition+300, 520, "Development CoP").attr(centreFont);
 
 //Teams
-var teamOne = paper.circle(400, 480, 25).animate({fill: "#223fa3", stroke: "#000", "stroke-width": 80, "stroke-opacity": 0.5}, 1000);
-var teamTwo = paper.circle(800, 510, 25).animate({fill: "#223fa3", stroke: "#000", "stroke-width": 80, "stroke-opacity": 0.5}, 2000);
-var teamThree = paper.circle(675, 460, 25).animate({fill: "#223fa3", stroke: "#000", "stroke-width": 80, "stroke-opacity": 0.5}, 1000);
-var teamFour = paper.circle(525, 520, 25).animate({fill: "#223fa3", stroke: "#000", "stroke-width": 80, "stroke-opacity": 0.5}, 1000);
+
+
+var teamOne = paper.circle(370, 460, 25).animate({fill: "#223fa3", stroke: "#000", "stroke-width": 80, "stroke-opacity": 0.5}, 1000);
+var teamOneText = paper.text(370, 420, "Team 1").attr(teamFont);
+
+var teamTwo = paper.circle(500, 490, 25).animate({fill: "#223fa3", stroke: "#000", "stroke-width": 80, "stroke-opacity": 0.5}, 1000);
+var teamTwoText = paper.text(500, 450, "Team 2").attr(teamFont);
+
+
+var teamThree = paper.circle(710, 490, 25).animate({fill: "#223fa3", stroke: "#000", "stroke-width": 80, "stroke-opacity": 0.5}, 1000);
+var teamOneText = paper.text(710, 450, "Team 3").attr(teamFont);
+
+
+var teamFour = paper.circle(840, 460, 25).animate({fill: "#223fa3", stroke: "#000", "stroke-width": 80, "stroke-opacity": 0.5}, 1000);
+var teamFourText = paper.text(840, 420, "Team n").attr(teamFont);
+
 
 //Sprint Review
 var sprintReview = paper.rect(fullWidthCentreBoxHorizontalPosition, 570, largeRectangleLength, allRectangleHeight, bevel)
